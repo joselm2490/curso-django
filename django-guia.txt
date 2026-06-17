@@ -1,0 +1,82 @@
+
+-- crear entorno virtual
+python3 -m venv my_env
+
+-- activar entorno virtual
+source my_env/bin/activate
+
+-- instalar django
+pip install Django
+
+-- ver version django
+python3 -m django --version
+
+-- inicializar proyecto
+django-admin startproject p001crud
+
+-- mover a la ubicacion del projecto
+cd p001crud
+
+-- ejecutar proyecto (dentro de la ubicacion del proyecto,
+-- saldra un error pero es normal porque aun no he migrado)
+python3 manage.py runserver
+
+-- migracion
+python3 manage.py migrate
+
+-- instalar extension IDE SQLite Viewer
+
+-- ejectutar nuevamente el proyecto
+python3 manage.py runserver
+
+-- crear aplicacion app,tengo que crearla
+--dentro del proyecto
+python3 manage.py startapp crud
+
+-- crear archivo para migracion de la app (recuerda que
+-- se trata de app no proyecto, tiene q estar en el enterno
+-- y dentro del --proyecto)
+python3 manage.py makemigrations crud
+
+-- ejecutamos migracion de nuevo (para incluir la 
+migracion de la app ante
+python3 manage.py migrate
+
+-- creacion de superusuario para administrar database
+-- user: admin / pass: admin12345 / email: admin@gmail.com
+python3 manage.py createsuperuser
+
+-- verifico si se creo el usuario aca http://127.0.0.1:8000/admin
+
+--luego de cambiar la base de datos de sqlite a posgrest (supebase)
+--tengo q migrar de nuevo y luego crear el superusuario de nuevo
+python3 manage.py migrate
+python3 manage.py createsuperuser
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
